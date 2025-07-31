@@ -1,4 +1,4 @@
-package verso.caixa;
+package verso.caixa.domain;
 
 public enum VehicleStatus {
     AVAILABLE,

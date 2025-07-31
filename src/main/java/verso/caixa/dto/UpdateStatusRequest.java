@@ -1,4 +1,7 @@
 package verso.caixa.dto;
 
-public class UpdateStatusRequest {
-}
+
+
+import jakarta.validation.constraints.NotNull;
+import verso.caixa.domain.VehicleStatus;
+public record UpdateStatusRequest(@NotNull VehicleStatus status) {}

@@ -1,13 +1,11 @@
-package com.example.vehicles.domain;
+package verso.caixa.domain;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import verso.caixa.VehicleStatus;
 
 @Entity
-@Table(name = "vehicles")
 public class Vehicle extends PanacheEntityBase {
 
     @Id
