@@ -28,7 +28,7 @@ public class VehicleService {
         v.brand = req.getBrand();
         v.model = req.getModel();
         v.engine = req.getEngine();
-        v.year = req.getYear();
+        v.anoFabricacao = req.getAnoFabricacao();
         v.status = VehicleStatus.AVAILABLE;
         repository.persist(v);
         return v;
@@ -49,7 +49,7 @@ public class VehicleService {
         v.brand = req.getBrand();
         v.model = req.getModel();
         v.engine = req.getEngine();
-        v.year = req.getYear();
+        v.anoFabricacao = req.getAnoFabricacao();
         return v;
     }
 
@@ -71,7 +71,7 @@ public class VehicleService {
     public void delete(Long id) {
         Vehicle v = getById(id);
         if (v.status == VehicleStatus.RENTED) {
-            throw new BusinessException("Veículo não pode ser removido quando está RENTED");
+            throw new BusinessException("Veículo não pode ser removido quando está Alugado");
         }
         repository.delete(v);
     }

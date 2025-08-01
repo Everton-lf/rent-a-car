@@ -7,12 +7,12 @@ public record VehicleResponse(
         String brand,
         String model,
         String engine,
-        Integer year,
+        Integer anoFabricacao,
         VehicleStatus status,
         String carTitle
 ) {
     public static VehicleResponse from(Vehicle vehicle) {
         return new VehicleResponse(
-                vehicle.id, vehicle.brand, vehicle.model, vehicle.engine, vehicle.year, vehicle.status, vehicle.getCarTitle());
+                vehicle.id, vehicle.brand, vehicle.model, vehicle.engine, vehicle.anoFabricacao, vehicle.status, vehicle.getCarTitle());
     }
 }

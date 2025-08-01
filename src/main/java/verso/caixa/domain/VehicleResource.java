@@ -1,12 +1,13 @@
-
+package verso.caixa.domain;
 
 
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
+
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
 import verso.caixa.dto.UpdateStatusRequest;
 import verso.caixa.dto.VehicleRequest;
 import verso.caixa.dto.VehicleResponse;
@@ -23,8 +24,10 @@ public class VehicleResource {
     @Inject
     VehicleService service;
 
+
     @POST
     public Response create(@Valid VehicleRequest req) {
+        System.out.println(">>> Entrou no método create()");
         var v = service.create(req);
         return Response.created(URI.create("/vehicles/" + v.id))
                 .entity(VehicleResponse.from(v))
@@ -47,12 +50,12 @@ public class VehicleResource {
     public VehicleResponse update(@PathParam("id") Long id, @Valid VehicleRequest req) {
         return VehicleResponse.from(service.update(id, req));
     }
-
     @PATCH
-    @Path("/{id}/status")
+   @Path("/{id}/status")
     public VehicleResponse updateStatus(@PathParam("id") Long id, @Valid UpdateStatusRequest req) {
         return VehicleResponse.from(service.updateStatus(id, req));
     }
+
 
     @DELETE
     @Path("/{id}")

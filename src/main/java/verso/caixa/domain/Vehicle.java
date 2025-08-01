@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "vehicles")
 public class Vehicle extends PanacheEntityBase {
 
     @Id
@@ -22,7 +23,7 @@ public class Vehicle extends PanacheEntityBase {
     public String engine;
 
     @NotNull
-    public Integer year;
+    public Integer anoFabricacao;
 
     @Enumerated(EnumType.STRING)
     @NotNull
