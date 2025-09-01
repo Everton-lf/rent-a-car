@@ -1,10 +1,13 @@
 package verso.caixa.dto;
 
+import verso.caixa.domain.VehicleStatus;
+
 public class VehicleRequest {
     private String brand;
     private String model;
     private String engine;
     private int anoFabricacao;
+    public VehicleStatus status;
 
     public String getBrand() {
         return brand;

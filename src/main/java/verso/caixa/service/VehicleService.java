@@ -70,16 +70,12 @@ public class VehicleService {
     @Transactional
     public void delete(Long id) {
         Vehicle v = getById(id);
-        if (v.status == VehicleStatus.RENTED) {
-            throw new BusinessException("Veículo não pode ser removido quando está Alugado");
-        }
         repository.delete(v);
     }
 
     private boolean isValidTransition(VehicleStatus from, VehicleStatus to) {
         if (to == VehicleStatus.UNDER_MAINTENANCE) return true;
-        if (to == VehicleStatus.RENTED) return from == VehicleStatus.AVAILABLE;
-        if (to == VehicleStatus.AVAILABLE) return from == VehicleStatus.RENTED || from == VehicleStatus.UNDER_MAINTENANCE;
+        if (to == VehicleStatus.AVAILABLE) return from == VehicleStatus.UNDER_MAINTENANCE;
         return false;
     }
 }
